@@ -1,0 +1,37 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <Authors>Andreas Pouwels</Authors>
+    <Company />
+    <Description>Provides functions to map two objects easily and quickly.</Description>
+    <Copyright>Andreas Pouwels</Copyright>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageProjectUrl>https://github.com/InvaderZim85/ZimLabs.Mapper</PackageProjectUrl>
+    <PackageIcon>Logo.png</PackageIcon>
+    <RepositoryUrl>https://github.com/InvaderZim85/ZimLabs.Mapper</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageTags>helper, mapper, objects, easy</PackageTags>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DocumentationFile>E:\Proggen\Utility\ZimLabs.Mapper\ZimLabs.Mapper\ZimLabs.Mapper.xml</DocumentationFile>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <DocumentationFile>E:\Proggen\Utility\ZimLabs.Mapper\ZimLabs.Mapper\ZimLabs.Mapper.xml</DocumentationFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="..\Logo.png">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
+  </ItemGroup>
+
+  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
+    <Exec Command="$(SolutionDir)Tools\gitDoc\GitDocGenerator.exe -p $(TargetPath) -o $(SolutionDir)docs -n ZimLabs.Mapper -g &quot;https://github.com/InvaderZim85/ZimLabs.Mapper&quot;" />
+  </Target>
+
+</Project>

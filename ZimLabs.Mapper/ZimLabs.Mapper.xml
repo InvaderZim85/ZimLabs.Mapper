@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>ZimLabs.Mapper</name>
+    </assembly>
+    <members>
+        <member name="T:ZimLabs.Mapper.IgnorePropertyAttribute">
+            <summary>
+            Attribute to mark that a property should be ignored
+            </summary>
+        </member>
+        <member name="T:ZimLabs.Mapper.Mapper">
+            <summary>
+            Provides the functions to map two objects
+            </summary>
+        </member>
+        <member name="M:ZimLabs.Mapper.Mapper.Map``2(``0,``1)">
+            <summary>
+            Maps the values of the properties of <paramref name="source"/> object into the properties of the <paramref name="target"/> object
+            </summary>
+            <typeparam name="TTarget">The type of the target object</typeparam>
+            <typeparam name="TSource">The type of the source object</typeparam>
+            <param name="target">The target object, which takes over the values from the source object</param>
+            <param name="source">The source object that provides the values for the target object</param>
+            <exception cref="T:System.ArgumentNullException">Will be thrown when the target or the source is null</exception>
+        </member>
+        <member name="M:ZimLabs.Mapper.Mapper.CreateAndMap``2(``1)">
+            <summary>
+            Maps the values of the properties of <paramref name="source"/> object into the properties of the new created target object
+            </summary>
+            <typeparam name="TTarget">The type of the target object</typeparam>
+            <typeparam name="TSource">The type of the source object</typeparam>
+            <param name="source">The source object that provides the values for the target object</param>
+            <returns>The new created property</returns>
+            <exception cref="T:System.ArgumentNullException">Will be thrown when the source is null</exception>
+        </member>
+        <member name="M:ZimLabs.Mapper.Mapper.IgnoreProperty(System.Reflection.MemberInfo)">
+            <summary>
+            Checks if the property should be ignored
+            </summary>
+            <param name="propertyInfo">The property info</param>
+            <returns>true when the property should be ignore, otherwise false</returns>
+        </member>
+    </members>
+</doc>
