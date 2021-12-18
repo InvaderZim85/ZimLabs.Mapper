@@ -1,17 +1,17 @@
-# Mapper.CreateAndMap&lt;TTarget,TSource&gt; method
+# Mapper.CreateAndMap&lt;TSource,TTarget&gt; method
 
 Maps the values of the properties of *source* object into the properties of the new created target object
 
 ```csharp
-public static TTarget CreateAndMap<TTarget, TSource>(TSource source)
-    where TTarget : class, new()
+public static TTarget CreateAndMap<TSource, TTarget>(TSource source)
     where TSource : class
+    where TTarget : class, new()
 ```
 
 | parameter | description |
 | --- | --- |
-| TTarget | The type of the target object |
 | TSource | The type of the source object |
+| TTarget | The type of the target object |
 | source | The source object that provides the values for the target object |
 
 ## Return Value

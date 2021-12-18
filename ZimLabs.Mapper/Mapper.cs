@@ -12,20 +12,20 @@ namespace ZimLabs.Mapper
         /// <summary>
         /// Maps the values of the properties of <paramref name="source"/> object into the properties of the <paramref name="target"/> object
         /// </summary>
-        /// <typeparam name="TTarget">The type of the target object</typeparam>
         /// <typeparam name="TSource">The type of the source object</typeparam>
-        /// <param name="target">The target object, which takes over the values from the source object</param>
+        /// <typeparam name="TTarget">The type of the target object</typeparam>
         /// <param name="source">The source object that provides the values for the target object</param>
+        /// <param name="target">The target object, which takes over the values from the source object</param>
         /// <exception cref="ArgumentNullException">Will be thrown when the target or the source is null</exception>
-        public static void Map<TTarget, TSource>(TTarget target, TSource source)
-            where TTarget : class
+        public static void Map<TSource, TTarget>(TSource source, TTarget target)
             where TSource : class
+            where TTarget : class
         {
-            if (target == null)
-                throw new ArgumentNullException(nameof(target));
-
             if (source == null)
                 throw new ArgumentNullException(nameof(source));
+
+            if (target == null)
+                throw new ArgumentNullException(nameof(target));
 
             var targetProperties = target.GetType().GetProperties();
             var sourceProperties = source.GetType().GetProperties();
@@ -76,18 +76,18 @@ namespace ZimLabs.Mapper
         /// <summary>
         /// Maps the values of the properties of <paramref name="source"/> object into the properties of the new created target object
         /// </summary>
-        /// <typeparam name="TTarget">The type of the target object</typeparam>
         /// <typeparam name="TSource">The type of the source object</typeparam>
+        /// <typeparam name="TTarget">The type of the target object</typeparam>
         /// <param name="source">The source object that provides the values for the target object</param>
         /// <returns>The new created property</returns>
         /// <exception cref="ArgumentNullException">Will be thrown when the source is null</exception>
-        public static TTarget CreateAndMap<TTarget, TSource>(TSource source)
-            where TTarget : class, new()
+        public static TTarget CreateAndMap<TSource, TTarget>(TSource source)
             where TSource : class
+            where TTarget : class, new()
         {
             var instance = Activator.CreateInstance<TTarget>();
 
-            Map(instance, source);
+            Map(source, instance);
 
             return instance;
         }

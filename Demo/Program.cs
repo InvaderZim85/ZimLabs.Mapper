@@ -8,7 +8,19 @@ namespace Demo
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Both classes are known...");
+            TestOne();
+
+            TestTwo();
+
+            Console.WriteLine("Done");
+            Console.ReadLine();
+        }
+
+        private static void TestOne()
+        {
+            // Both types are existing and not null
+            Console.WriteLine("Both types are not null");
+
             var sourcePerson = new SourcePerson
             {
                 Id = null,
@@ -20,20 +32,29 @@ namespace Demo
 
             var targetPerson = new TargetPerson();
 
-            Mapper.Map(targetPerson, sourcePerson);
+            Mapper.Map(sourcePerson, targetPerson);
 
             Console.WriteLine($"Source: {sourcePerson}");
             Console.WriteLine($"Target: {targetPerson}");
+        }
 
-            Console.WriteLine("Only source class is known...");
+        private static void TestTwo()
+        {
+            Console.WriteLine("The source type is not null and create a new target");
 
-            var result = Mapper.CreateAndMap<TargetPerson, SourcePerson>(sourcePerson);
+            var sourcePerson = new SourcePerson
+            {
+                Id = null,
+                FirstName = "Bender",
+                LastName = "Rodriguez",
+                IgnoreValue = "Some fancy value",
+                OtherId = 666
+            };
+
+            var targetPerson = Mapper.CreateAndMap<SourcePerson, TargetPerson>(sourcePerson);
 
             Console.WriteLine($"Source: {sourcePerson}");
-            Console.WriteLine($"Target: {result}");
-
-            Console.WriteLine("Done");
-            Console.ReadLine();
+            Console.WriteLine($"Target: {targetPerson}");
         }
     }
 

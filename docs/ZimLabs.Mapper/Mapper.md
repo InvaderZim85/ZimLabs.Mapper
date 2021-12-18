@@ -10,8 +10,8 @@ public static class Mapper
 
 | name | description |
 | --- | --- |
-| static [CreateAndMap&lt;TTarget,TSource&gt;](Mapper/CreateAndMap.md)(…) | Maps the values of the properties of *source* object into the properties of the new created target object |
-| static [Map&lt;TTarget,TSource&gt;](Mapper/Map.md)(…) | Maps the values of the properties of *source* object into the properties of the *target* object |
+| static [CreateAndMap&lt;TSource,TTarget&gt;](Mapper/CreateAndMap.md)(…) | Maps the values of the properties of *source* object into the properties of the new created target object |
+| static [Map&lt;TSource,TTarget&gt;](Mapper/Map.md)(…) | Maps the values of the properties of *source* object into the properties of the *target* object |
 
 ## Private Members
 

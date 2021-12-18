@@ -1,19 +1,19 @@
-# Mapper.Map&lt;TTarget,TSource&gt; method
+# Mapper.Map&lt;TSource,TTarget&gt; method
 
 Maps the values of the properties of *source* object into the properties of the *target* object
 
 ```csharp
-public static void Map<TTarget, TSource>(TTarget target, TSource source)
-    where TTarget : class
+public static void Map<TSource, TTarget>(TSource source, TTarget target)
     where TSource : class
+    where TTarget : class
 ```
 
 | parameter | description |
 | --- | --- |
-| TTarget | The type of the target object |
 | TSource | The type of the source object |
-| target | The target object, which takes over the values from the source object |
+| TTarget | The type of the target object |
 | source | The source object that provides the values for the target object |
+| target | The target object, which takes over the values from the source object |
 
 ## Exceptions
 
