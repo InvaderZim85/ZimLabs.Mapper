@@ -4,6 +4,34 @@
         <name>ZimLabs.Mapper</name>
     </assembly>
     <members>
+        <member name="T:ZimLabs.Mapper.ChangeEntry">
+            <summary>
+            Represents a change entry
+            </summary>
+        </member>
+        <member name="P:ZimLabs.Mapper.ChangeEntry.Property">
+            <summary>
+            Gets the name of the property
+            </summary>
+        </member>
+        <member name="P:ZimLabs.Mapper.ChangeEntry.OldValue">
+            <summary>
+            Gets the old value
+            </summary>
+        </member>
+        <member name="P:ZimLabs.Mapper.ChangeEntry.NewValue">
+            <summary>
+            Gets the new value
+            </summary>
+        </member>
+        <member name="M:ZimLabs.Mapper.ChangeEntry.#ctor(System.String,System.Object,System.Object)">
+            <summary>
+            Creates a new instance of the <see cref="T:ZimLabs.Mapper.ChangeEntry"/>
+            </summary>
+            <param name="property">The name of the property</param>
+            <param name="oldValue">The old value</param>
+            <param name="newValue">The new value</param>
+        </member>
         <member name="T:ZimLabs.Mapper.IgnorePropertyAttribute">
             <summary>
             Attribute to mark that a property should be ignored
@@ -33,6 +61,15 @@
             <param name="source">The source object that provides the values for the target object</param>
             <returns>The new created property</returns>
             <exception cref="T:System.ArgumentNullException">Will be thrown when the source is null</exception>
+        </member>
+        <member name="M:ZimLabs.Mapper.Mapper.GetChanges``1(``0,``0)">
+            <summary>
+            Gets the changes of the t
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="obj"></param>
+            <param name="newObj"></param>
+            <returns></returns>
         </member>
         <member name="M:ZimLabs.Mapper.Mapper.IgnoreProperty(System.Reflection.MemberInfo)">
             <summary>

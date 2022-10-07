@@ -1,6 +1,6 @@
 ﻿using System;
-using System.Linq;
 using ZimLabs.Mapper;
+using ZimLabs.TableCreator;
 
 namespace Demo
 {
@@ -9,8 +9,13 @@ namespace Demo
         static void Main(string[] args)
         {
             TestOne();
+            Console.WriteLine();
 
             TestTwo();
+            Console.WriteLine();
+
+            TestThree();
+            Console.WriteLine();
 
             Console.WriteLine("Done");
             Console.ReadLine();
@@ -34,8 +39,11 @@ namespace Demo
 
             Mapper.Map(sourcePerson, targetPerson);
 
-            Console.WriteLine($"Source: {sourcePerson}");
-            Console.WriteLine($"Target: {targetPerson}");
+            Console.WriteLine("Source:");
+            Console.WriteLine(sourcePerson.CreateValueTable());
+            Console.WriteLine();
+            Console.WriteLine("Target:");
+            Console.WriteLine(targetPerson.CreateValueTable());
         }
 
         private static void TestTwo()
@@ -53,8 +61,38 @@ namespace Demo
 
             var targetPerson = Mapper.CreateAndMap<SourcePerson, TargetPerson>(sourcePerson);
 
-            Console.WriteLine($"Source: {sourcePerson}");
-            Console.WriteLine($"Target: {targetPerson}");
+            Console.WriteLine("Source:");
+            Console.WriteLine(sourcePerson.CreateValueTable());
+            Console.WriteLine();
+            Console.WriteLine("Target:");
+            Console.WriteLine(targetPerson.CreateValueTable());
+        }
+
+        private static void TestThree()
+        {
+            Console.WriteLine("Get changes between two objects");
+
+            var firstPerson = new TargetPerson
+            {
+                Id = 1,
+                FirstName = "Bender",
+                LastName = "Rodriguez",
+                IgnoreValue = "Some fancy value",
+                OtherId = 666
+            };
+
+            var secondPerson = new TargetPerson
+            {
+                Id = 1,
+                FirstName = "Philip J.",
+                LastName = "Fry",
+                IgnoreValue = "Some fancy value",
+                OtherId = 123
+            };
+
+            var changes = firstPerson.GetChanges(secondPerson);
+
+            Console.WriteLine(changes.CreateTable());
         }
     }
 

@@ -11,6 +11,7 @@ public static class Mapper
 | name | description |
 | --- | --- |
 | static [CreateAndMap&lt;TSource,TTarget&gt;](Mapper/CreateAndMap.md)(…) | Maps the values of the properties of *source* object into the properties of the new created target object |
+| static [GetChanges&lt;T&gt;](Mapper/GetChanges.md)(…) | Gets the changes of the t |
 | static [Map&lt;TSource,TTarget&gt;](Mapper/Map.md)(…) | Maps the values of the properties of *source* object into the properties of the *target* object |
 
 ## Private Members

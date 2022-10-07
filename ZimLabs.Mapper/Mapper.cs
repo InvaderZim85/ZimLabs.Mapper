@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 
@@ -90,6 +91,25 @@ namespace ZimLabs.Mapper
             Map(source, instance);
 
             return instance;
+        }
+
+        /// <summary>
+        /// Gets the changes of the t
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="obj"></param>
+        /// <param name="newObj"></param>
+        /// <returns></returns>
+        public static List<ChangeEntry> GetChanges<T>(this T obj, T newObj) where T : class
+        {
+            var properties = typeof(T).GetProperties();
+
+            return (from property in properties
+                where !property.IgnoreProperty()
+                let oldValue = property.GetValue(obj)
+                let newValue = property.GetValue(newObj)
+                    where !Equals(oldValue, newValue)
+                select new ChangeEntry(property.Name, oldValue, newValue)).ToList();
         }
 
         /// <summary>

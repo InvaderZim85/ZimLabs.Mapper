@@ -13,14 +13,19 @@
     <RepositoryType>git</RepositoryType>
     <PackageTags>helper, mapper, objects, easy</PackageTags>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <ProduceReferenceAssembly>False</ProduceReferenceAssembly>
+    <GenerateDocumentationFile>True</GenerateDocumentationFile>
+    <AssemblyVersion>1.1.0</AssemblyVersion>
+    <FileVersion>1.1.0</FileVersion>
+    <Version>1.1.0</Version>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <DocumentationFile>E:\Proggen\Utility\ZimLabs.Mapper\ZimLabs.Mapper\ZimLabs.Mapper.xml</DocumentationFile>
+    <DocumentationFile>ZimLabs.Mapper.xml</DocumentationFile>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
-    <DocumentationFile>E:\Proggen\Utility\ZimLabs.Mapper\ZimLabs.Mapper\ZimLabs.Mapper.xml</DocumentationFile>
+    <DocumentationFile>ZimLabs.Mapper.xml</DocumentationFile>
   </PropertyGroup>
 
   <ItemGroup>

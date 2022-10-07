@@ -4,6 +4,7 @@
 
 | public type | description |
 | --- | --- |
+| class [ChangeEntry](ZimLabs.Mapper/ChangeEntry.md) | Represents a change entry |
 | class [IgnorePropertyAttribute](ZimLabs.Mapper/IgnorePropertyAttribute.md) | Attribute to mark that a property should be ignored |
 | static class [Mapper](ZimLabs.Mapper/Mapper.md) | Provides the functions to map two objects |
 
