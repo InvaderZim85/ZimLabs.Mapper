@@ -5,6 +5,8 @@
 
 ## Usage
 
+### Mapping
+
 The two objects:
 
 1. The objects
@@ -63,4 +65,51 @@ The two objects:
     };
 
     var targetPerson = Mapper.CreateAndMap<SourcePerson, TargetPerson>(sourcePerson);
+    ```
+
+### Get changes
+
+1. The objects
+
+    ```csharp
+    var firstPerson = new TargetPerson
+    {
+        Id = 1,
+        FirstName = "Bender",
+        LastName = "Rodriguez",
+        IgnoreValue = "Some fancy value",
+        OtherId = 666
+    };
+
+    var secondPerson = new TargetPerson
+    {
+        Id = 1,
+        FirstName = "Philip J.",
+        LastName = "Fry",
+        IgnoreValue = "Some fancy value",
+        OtherId = 123
+    };
+    ```
+
+2. Get the changes
+
+    ```csharp
+    var changes = firstPerson.GetChanges(secondPerson);
+    ```
+
+    The variable `change` contains a list with all changes. Every entry contains the following properties:
+    - *Property*: The name of the property
+    - *OldValue* The "original" old value
+    - *NewValue* The "new" value
+
+3. The result
+
+    ```
+    +-----------+-----------+-----------+
+    | Property  | OldValue  | NewValue  |
+    +-----------+-----------+-----------+
+    | FirstName | Bender    | Philip J. |
+    | LastName  | Rodriguez | Fry       |
+    | OtherId   | 666       | 123       |
+    +-----------+-----------+-----------+
     ```
